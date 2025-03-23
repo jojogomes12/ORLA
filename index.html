@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper Tailwind Cards Local Images</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Heroicons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+      .swiper-slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        background: radial-gradient(rgba(0, 0, 0, 0.08), transparent 60%);
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- Top Title -->
+    <div class="absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-2xl shadow-md shadow-gray-700/50">
+      <h1 class="text-xl font-bold">Galeria de Motos</h1>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper w-72 h-[418px] mt-16"> <!-- Reduziu mais 10% -->
+      <div class="swiper-wrapper">
+
+        <!-- Card Template Start -->
+        <!-- Card 1 -->
+        <div class="swiper-slide relative bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-transform duration-300">
+          <!-- Título -->
+          <div class="absolute top-2 left-2 z-10">
+            <div class="bg-black text-white px-4 py-2 rounded-full shadow-md">
+              <a href="#" class="text-sm font-semibold underline decoration-black">Natureza Bela</a>
+            </div>
+          </div>
+          <!-- Botões -->
+          <div class="absolute top-2 right-2 flex space-x-2 z-10">
+            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <i data-feather="heart" class="w-5 h-5 text-gray-700"></i>
+            </button>
+            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <i data-feather="share-2" class="w-5 h-5 text-gray-700"></i>
+            </button>
+          </div>
+          <!-- Imagem -->
+          <div class="w-full flex items-center justify-center bg-white p-4">
+            <img src="imagens/moto_amarela.jpg" alt="Natureza Bela" class="object-contain" style="height: 248px;" /> <!-- Reduzido mais 10% -->
+          </div>
+          <!-- Conteúdo -->
+          <div class="p-4 flex-1 flex flex-col justify-between bg-white">
+            <p class="text-gray-600 text-sm">Descubra paisagens incríveis e respire ar puro.</p>
+            <div class="mt-4">
+              <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide relative bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-transform duration-300">
+          <div class="absolute top-2 left-2 z-10">
+            <div class="bg-black text-white px-4 py-2 rounded-full shadow-md">
+              <a href="#" class="text-sm font-semibold underline decoration-black">Tecnologia</a>
+            </div>
+          </div>
+          <div class="absolute top-2 right-2 flex space-x-2 z-10">
+            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <i data-feather="heart" class="w-5 h-5 text-gray-700"></i>
+            </button>
+            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <i data-feather="share-2" class="w-5 h-5 text-gray-700"></i>
+            </button>
+          </div>
+          <div class="w-full flex items-center justify-center bg-white p-4">
+            <img src="imagens/moto_cinza.jpg" alt="Tecnologia" class="object-contain" style="height: 248px;" /> <!-- Reduzido mais 10% -->
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between bg-white">
+            <p class="text-gray-600 text-sm">Fique por dentro das últimas inovações do mundo tech.</p>
+            <div class="mt-4">
+              <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide relative bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-transform duration-300">
+          <div class="absolute top-2 left-2 z-10">
+            <div class="bg-black text-white px-4 py-2 rounded-full shadow-md">
+              <a href="#" class="text-sm font-semibold underline decoration-black">Viagens</a>
+            </div>
+          </div>
+          <div class="absolute top-2 right-2 flex space-x-2 z-10">
+            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <i data-feather="heart" class="w-5 h-5 text-gray-700"></i>
+            </button>
+            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <i data-feather="share-2" class="w-5 h-5 text-gray-700"></i>
+            </button>
+          </div>
+          <div class="w-full flex items-center justify-center bg-white p-4">
+            <img src="imagens/moto_preta.jpg" alt="Viagens" class="object-contain" style="height: 248px;" /> <!-- Reduzido mais 10% -->
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between bg-white">
+            <p class="text-gray-600 text-sm">Planeje sua próxima aventura inesquecível!</p>
+            <div class="mt-4">
+              <button class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition">Saiba Mais</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+        cardsEffect: {
+          slideShadows: false,
+        },
+      });
+      feather.replace();
+    </script>
+  </body>
+</html>
