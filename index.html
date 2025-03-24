@@ -26,40 +26,52 @@
         background: radial-gradient(rgba(0, 0, 0, 0.08), transparent 60%);
         pointer-events: none;
       }
-      .btn-saiba-mais {
+      .btn-red {
         background-color: #D43232;
-        transition: all 0.3s ease;
       }
-      .btn-saiba-mais:hover {
-        background-color: #a41d1d;
-      }
-      .btn-saiba-mais:active {
-        background-color: #000000;
+      .btn-red:active {
+        background-color: #000000 !important;
       }
     </style>
   </head>
 
   <body class="flex flex-col items-center justify-center min-h-screen p-4">
 
-    <!-- Top Title -->
-    <div class="absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-2xl shadow-md shadow-gray-700/50">
-      <h1 class="text-xl font-bold">Galeria de Motos</h1>
+    <!-- Navbar -->
+    <nav class="w-full bg-black text-white py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50">
+      <div class="text-xl font-bold">MotoStore</div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-gray-300">Home</a>
+        <a href="#" class="hover:text-gray-300">Modelos</a>
+        <a href="#" class="hover:text-gray-300">Contato</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-button" class="focus:outline-none">
+          <i data-feather="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden flex-col bg-black text-white absolute top-16 left-0 w-full space-y-4 py-4 px-6 z-40">
+      <a href="#" class="hover:text-gray-300">Home</a>
+      <a href="#" class="hover:text-gray-300">Modelos</a>
+      <a href="#" class="hover:text-gray-300">Contato</a>
     </div>
 
+    
+
     <!-- Swiper -->
-    <div class="swiper mySwiper w-72 h-[418px] mt-16">
+    <div class="swiper mySwiper w-72 h-[418px] mt-40"> <!-- Ajuste para dar espaço à navbar -->
       <div class="swiper-wrapper">
 
-        <!-- Card Template Start -->
         <!-- Card 1 -->
         <div class="swiper-slide relative bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-transform duration-300">
-          <!-- Título -->
           <div class="absolute top-2 left-2 z-10">
             <div class="bg-black text-white px-4 py-2 rounded-full shadow-md">
               <a href="#" class="text-sm font-semibold underline decoration-black">X11 3000W</a>
             </div>
           </div>
-          <!-- Botões -->
           <div class="absolute top-2 right-2 flex space-x-2 z-10">
             <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
               <i data-feather="heart" class="w-5 h-5 text-gray-700"></i>
@@ -68,15 +80,13 @@
               <i data-feather="share-2" class="w-5 h-5 text-gray-700"></i>
             </button>
           </div>
-          <!-- Imagem -->
           <div class="w-full flex items-center justify-center bg-white p-4">
             <img src="imagens/moto_amarela.jpg" alt="Natureza Bela" class="object-contain" style="height: 248px;" />
           </div>
-          <!-- Conteúdo -->
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
             <p class="text-gray-600 text-sm">A scooter elétrica X11 3000W Bateria 25AH é a melhor companhia para o seu dia a dia e momentos de lazer.</p>
             <div class="mt-4">
-              <button class="btn-saiba-mais text-white px-4 py-2 rounded-lg">Saiba Mais</button>
+              <button class="btn-red text-white px-4 py-2 rounded-lg transition">Saiba Mais</button>
             </div>
           </div>
         </div>
@@ -102,7 +112,7 @@
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
             <p class="text-gray-600 text-sm">Adquira sua Scooter X8 com 3000W de potência e experimente o que há de melhor em deslocamento elétrico!</p>
             <div class="mt-4">
-              <button class="btn-saiba-mais text-white px-4 py-2 rounded-lg">Saiba Mais</button>
+              <button class="btn-red text-white px-4 py-2 rounded-lg transition">Saiba Mais</button>
             </div>
           </div>
         </div>
@@ -128,13 +138,14 @@
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
             <p class="text-gray-600 text-sm">Uma combinação perfeita de potência, eficiência e design moderno. Planeje sua próxima aventura inesquecível!</p>
             <div class="mt-4">
-              <button class="btn-saiba-mais text-white px-4 py-2 rounded-lg">Saiba Mais</button>
+              <button class="btn-red text-white px-4 py-2 rounded-lg transition">Saiba Mais</button>
             </div>
           </div>
         </div>
 
       </div>
     </div>
+
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
