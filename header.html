@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORLA</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  
+  <!-- Fonte Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    .feather {
+      stroke-width: 1.2; /* Ícones um pouco mais grossos */
+      color: white; /* Cor branca */
+    }
+
+    /* Animações do mobile menu */
+    .mobile-menu-enter {
+      transform: translateX(-100%);
+    }
+    .mobile-menu-enter-active {
+      transition: transform 300ms ease-in-out;
+      transform: translateX(0);
+    }
+    .mobile-menu-leave-active {
+      transition: transform 300ms ease-in-out;
+      transform: translateX(-100%);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 font-[Inter]">
+
+  <!-- Navbar -->
+  <nav class="w-full bg-black text-white py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50">
+    
+    <!-- Botão Menu -->
+    <div class="md:hidden relative">
+      <button id="menu-button" class="focus:outline-none relative w-8 h-8 flex items-center justify-center">
+        <i id="menu-icon" class="w-8 h-8 transition-transform duration-300"></i>
+      </button>
+    </div>
+
+    <!-- Logo -->
+    <div id="logo" class="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300">
+      <img src="imagens/Logo.png" alt="Logo MotoStore" class="w-48 md:w-60 object-contain" />
+    </div>
+  
+    <!-- Menu Desktop -->
+    <div class="hidden md:flex space-x-6 text-base tracking-wide">
+      <a href="#" class="hover:text-gray-300">Home</a>
+      <a href="#" class="hover:text-gray-300">Modelos</a>
+      <a href="#" class="hover:text-gray-300">Contato</a>
+      <a href="#" class="hover:text-gray-300">Sobre</a>
+      <a href="#" class="hover:text-gray-300">Equipe</a>
+      <a href="#" class="hover:text-gray-300">Loja</a>
+      <a href="#" class="hover:text-gray-300">FAQ</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full h-screen bg-black text-white flex-col space-y-12 pt-8 px-8 z-40 hidden">
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="home" class="w-6 h-6"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="truck" class="w-6 h-6"></i>
+      <span>Modelos</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="phone" class="w-6 h-6"></i>
+      <span>Contato</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="info" class="w-6 h-6"></i>
+      <span>Sobre</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="users" class="w-6 h-6"></i>
+      <span>Equipe</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="shopping-cart" class="w-6 h-6"></i>
+      <span>Loja</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="help-circle" class="w-6 h-6"></i>
+      <span>FAQ</span>
+    </a>
+  </div>
+
+  <script>
+    feather.replace();
+
+    const menuButton = document.getElementById('menu-button');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    let menuOpen = false;
+
+    function updateIcon(iconName) {
+      menuIcon.innerHTML = '';
+      menuIcon.setAttribute('data-feather', iconName);
+      feather.replace();
+    }
+
+    updateIcon('menu');
+
+    menuButton.addEventListener('click', () => {
+      if (!menuOpen) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        void mobileMenu.offsetWidth;
+        mobileMenu.classList.add('mobile-menu-enter-active');
+        mobileMenu.classList.remove('mobile-menu-leave-active');
+        updateIcon('x');
+        menuOpen = true;
+      } else {
+        mobileMenu.classList.add('mobile-menu-leave-active');
+        mobileMenu.classList.remove('mobile-menu-enter-active');
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+        }, 300);
+        updateIcon('menu');
+        menuOpen = false;
+      }
+    });
+  </script>
+</body>
+</html>

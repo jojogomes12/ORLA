@@ -34,46 +34,85 @@
         .btn-red:active {
           background-color: #000000 !important;
         }
-        .mobile-menu-enter {
-  transform: translateX(-100%);
-}
-.mobile-menu-enter-active {
-  transition: transform 300ms ease-in-out;
-  transform: translateX(0);
-}
-.mobile-menu-leave-active {
-  transition: transform 300ms ease-in-out;
-  transform: translateX(-100%);
-}
+        .feather {
+      stroke-width: 1.2; /* Ícones um pouco mais grossos */
+      color: white; /* Cor branca */
+    }
+
+    /* Animações do mobile menu */
+    .mobile-menu-enter {
+      transform: translateX(-100%);
+    }
+    .mobile-menu-enter-active {
+      transition: transform 300ms ease-in-out;
+      transform: translateX(0);
+    }
+    .mobile-menu-leave-active {
+      transition: transform 300ms ease-in-out;
+      transform: translateX(-100%);
+    }
 
       </style>
   </head>
 
   <body class="flex flex-col items-center justify-center min-h-screen p-4">
-
- <!-- Navbar -->
- <nav class="w-full bg-black text-white py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50">
+<!-- Navbar -->
+<nav class="w-full bg-black text-white py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50">
+    
+    <!-- Botão Menu -->
     <div class="md:hidden relative">
       <button id="menu-button" class="focus:outline-none relative w-8 h-8 flex items-center justify-center">
         <i id="menu-icon" class="w-8 h-8 transition-transform duration-300"></i>
       </button>
     </div>
-  
-    <div id="logo" class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2 transition-all duration-300">
-      MotoStore
+
+    <!-- Logo -->
+    <div id="logo" class="absolute left-1/2 transform -translate-x-1/2 transition-all duration-300">
+      <img src="imagens/Logo.png" alt="Logo MotoStore" class="w-48 md:w-60 object-contain" />
     </div>
   
-    <div class="hidden md:flex space-x-6">
+    <!-- Menu Desktop -->
+    <div class="hidden md:flex space-x-6 text-base tracking-wide">
       <a href="#" class="hover:text-gray-300">Home</a>
       <a href="#" class="hover:text-gray-300">Modelos</a>
       <a href="#" class="hover:text-gray-300">Contato</a>
+      <a href="#" class="hover:text-gray-300">Sobre</a>
+      <a href="#" class="hover:text-gray-300">Equipe</a>
+      <a href="#" class="hover:text-gray-300">Loja</a>
+      <a href="#" class="hover:text-gray-300">FAQ</a>
     </div>
   </nav>
-  
-  <div id="mobile-menu" class="fixed top-16 left-0 w-full h-screen bg-black text-white flex-col space-y-4 py-4 px-6 z-40 hidden">
-    <a href="#" class="hover:text-gray-300 block">Home</a>
-    <a href="#" class="hover:text-gray-300 block">Modelos</a>
-    <a href="#" class="hover:text-gray-300 block">Contato</a>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full h-screen bg-black text-white flex-col space-y-12 pt-8 px-8 z-40 hidden">
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="home" class="w-6 h-6"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="truck" class="w-6 h-6"></i>
+      <span>Modelos</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="phone" class="w-6 h-6"></i>
+      <span>Contato</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="info" class="w-6 h-6"></i>
+      <span>Sobre</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="users" class="w-6 h-6"></i>
+      <span>Equipe</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="shopping-cart" class="w-6 h-6"></i>
+      <span>Loja</span>
+    </a>
+    <a href="#" class="hover:text-gray-300 text-lg font-light md:font-medium flex items-center space-x-4 tracking-wide">
+      <i data-feather="help-circle" class="w-6 h-6"></i>
+      <span>FAQ</span>
+    </a>
   </div>
   
     <!-- Swiper -->
@@ -174,61 +213,42 @@
     },
   });
 
-// Inicialmente carrega o ícone
-feather.replace();
+  feather.replace();
 
 const menuButton = document.getElementById('menu-button');
 const menuIcon = document.getElementById('menu-icon');
 const mobileMenu = document.getElementById('mobile-menu');
-const logo = document.getElementById('logo');
 
 let menuOpen = false;
 
 function updateIcon(iconName) {
-  menuIcon.innerHTML = ''; // Remove o SVG antigo
+  menuIcon.innerHTML = '';
   menuIcon.setAttribute('data-feather', iconName);
   feather.replace();
 }
 
-updateIcon('menu'); // Define o ícone inicial
+updateIcon('menu');
 
 menuButton.addEventListener('click', () => {
   if (!menuOpen) {
-    // Abre o menu
     mobileMenu.classList.remove('hidden');
     mobileMenu.classList.add('flex');
-
     void mobileMenu.offsetWidth;
-
     mobileMenu.classList.add('mobile-menu-enter-active');
     mobileMenu.classList.remove('mobile-menu-leave-active');
-
-    // Troca ícone para X
     updateIcon('x');
-
-   
-
     menuOpen = true;
   } else {
-    // Fecha o menu
     mobileMenu.classList.add('mobile-menu-leave-active');
     mobileMenu.classList.remove('mobile-menu-enter-active');
-
     setTimeout(() => {
       mobileMenu.classList.add('hidden');
       mobileMenu.classList.remove('flex');
     }, 300);
-
-    // Volta ícone para hambúrguer
     updateIcon('menu');
-
-    // Volta logo
-    logo.textContent = 'MotoStore';
-
     menuOpen = false;
   }
 });
-
 </script>
 
   </body>
