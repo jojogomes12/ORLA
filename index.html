@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORLA</title>
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <style>
     /* Reset básico */
@@ -139,7 +140,7 @@
     .feature-card {
 background: linear-gradient(to bottom right, #333333, #000000);
       padding: 20px;
-      text-align: center;
+      
       border-radius: 8px;
       width: 300px;
       display: flex;
@@ -155,8 +156,14 @@ background: linear-gradient(to bottom right, #333333, #000000);
     .feature-card h3 {
       font-size: 22px;
       color: #fefeff;
+      border-radius: 50px;
+      background-color: #000000;
+      padding: 0 20px;
+      margin-left: -130px;
     }
-
+ .feature-card p{
+    margin-left: -160px;
+ }
     .features {
       display: flex;
       flex-wrap: wrap;
@@ -234,7 +241,9 @@ background: linear-gradient(to bottom right, #333333, #000000);
         z-index: 1000; /* Aqui está a mágica! */
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aqui adicionamos a sombra */
         display: none;
-      }
+         
+    }
+   
       nav.active {
         display: flex;
       }
@@ -312,23 +321,26 @@ background: linear-gradient(to bottom right, #333333, #000000);
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="feature-card">
+                <div class="icon-container">
+                
+                  </div>
                 <img src="imagens/moto_amarela-removebg-preview.png" alt="Ícone 1" />
-                <h3>Mobilidade Inteligente</h3>
-                <p>Experimente liberdade com nossas scooters elétricas.</p>
+                <h3>X6 1000W</h3>
+                <p>R$ 3900</p>
               </div>
             </div>
             <div class="swiper-slide">
               <div class="feature-card">
                 <img src="imagens/moto_cinza-removebg-preview.png" alt="Ícone 2" />
-                <h3>Design Moderno</h3>
-                <p>Estilo e eficiência em cada trajeto.</p>
+                <h3>701 3000W</h3>
+                <p>R$6,500</p>
               </div>
             </div>
             <div class="swiper-slide">
               <div class="feature-card">
                 <img src="imagens/moto_preta-removebg-preview.png" alt="Ícone 3" />
-                <h3>Sustentabilidade</h3>
-                <p>Movimente-se com consciência ecológica.</p>
+                <h3>X11 3000W</h3>
+                <p>R$ 5,300</p>
               </div>
             </div>
           </div>
