@@ -15,9 +15,9 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
-        body{
-            background-color: #383737;
-        }
+      body {
+        background-color: #383737;
+      }
       .swiper-slide::before {
         content: "";
         position: absolute;
@@ -26,10 +26,20 @@
         background: radial-gradient(rgba(0, 0, 0, 0.08), transparent 60%);
         pointer-events: none;
       }
+      .btn-saiba-mais {
+        background-color: #D43232;
+        transition: all 0.3s ease;
+      }
+      .btn-saiba-mais:hover {
+        background-color: #a41d1d;
+      }
+      .btn-saiba-mais:active {
+        background-color: #000000;
+      }
     </style>
   </head>
 
-  <body class=" flex flex-col items-center justify-center min-h-screen p-4">
+  <body class="flex flex-col items-center justify-center min-h-screen p-4">
 
     <!-- Top Title -->
     <div class="absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-2xl shadow-md shadow-gray-700/50">
@@ -37,7 +47,7 @@
     </div>
 
     <!-- Swiper -->
-    <div class="swiper mySwiper w-72 h-[418px] mt-16"> <!-- Reduziu mais 10% -->
+    <div class="swiper mySwiper w-72 h-[418px] mt-16">
       <div class="swiper-wrapper">
 
         <!-- Card Template Start -->
@@ -60,13 +70,13 @@
           </div>
           <!-- Imagem -->
           <div class="w-full flex items-center justify-center bg-white p-4">
-            <img src="imagens/moto_amarela.jpg" alt="Natureza Bela" class="object-contain" style="height: 248px;" /> <!-- Reduzido mais 10% -->
+            <img src="imagens/moto_amarela.jpg" alt="Natureza Bela" class="object-contain" style="height: 248px;" />
           </div>
           <!-- Conteúdo -->
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
             <p class="text-gray-600 text-sm">A scooter elétrica X11 3000W Bateria 25AH é a melhor companhia para o seu dia a dia e momentos de lazer.</p>
             <div class="mt-4">
-              <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-black transition">Saiba Mais</button>
+              <button class="btn-saiba-mais text-white px-4 py-2 rounded-lg">Saiba Mais</button>
             </div>
           </div>
         </div>
@@ -87,12 +97,12 @@
             </button>
           </div>
           <div class="w-full flex items-center justify-center bg-white p-4">
-            <img src="imagens/hawk-x8-3000w.jpg" alt="Tecnologia" class="object-contain" style="height: 248px;" /> <!-- Reduzido mais 10% -->
+            <img src="imagens/hawk-x8-3000w.jpg" alt="Tecnologia" class="object-contain" style="height: 248px;" />
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
             <p class="text-gray-600 text-sm">Adquira sua Scooter X8 com 3000W de potência e experimente o que há de melhor em deslocamento elétrico!</p>
             <div class="mt-4">
-              <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">Saiba Mais</button>
+              <button class="btn-saiba-mais text-white px-4 py-2 rounded-lg">Saiba Mais</button>
             </div>
           </div>
         </div>
@@ -113,12 +123,12 @@
             </button>
           </div>
           <div class="w-full flex items-center justify-center bg-white p-4">
-            <img src="imagens/moto_preta.jpg" alt="Viagens" class="object-contain" style="height: 248px;" /> <!-- Reduzido mais 10% -->
+            <img src="imagens/moto_preta.jpg" alt="Viagens" class="object-contain" style="height: 248px;" />
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
-            <p class="text-gray-600 text-sm"> Uma combinação perfeita de potência, eficiência e design moderno.Planeje sua próxima aventura inesquecível!</p>
+            <p class="text-gray-600 text-sm">Uma combinação perfeita de potência, eficiência e design moderno. Planeje sua próxima aventura inesquecível!</p>
             <div class="mt-4">
-              <button class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition">Saiba Mais</button>
+              <button class="btn-saiba-mais text-white px-4 py-2 rounded-lg">Saiba Mais</button>
             </div>
           </div>
         </div>
