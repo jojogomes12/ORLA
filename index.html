@@ -10,56 +10,70 @@
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Heroicons -->
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
-      body {
-        background-color: #383737;
-      }
-      .swiper-slide::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 16px;
-        background: radial-gradient(rgba(0, 0, 0, 0.08), transparent 60%);
-        pointer-events: none;
-      }
-      .btn-red {
-        background-color: #D43232;
-      }
-      .btn-red:active {
-        background-color: #000000 !important;
-      }
-    </style>
+        body {
+            background-color: #383737;
+            font-family: 'Inter', sans-serif;
+        }
+        .swiper-slide::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 16px;
+          background: radial-gradient(rgba(0, 0, 0, 0.08), transparent 60%);
+          pointer-events: none;
+        }
+        .btn-red {
+          background-color: #D43232;
+        }
+        .btn-red:active {
+          background-color: #000000 !important;
+        }
+        .mobile-menu-enter {
+          transform: translateY(-100%);
+        }
+        .mobile-menu-enter-active {
+          transition: transform 300ms ease-in-out;
+          transform: translateY(0);
+        }
+        .mobile-menu-leave {
+          transform: translateY(0);
+        }
+        .mobile-menu-leave-active {
+          transition: transform 300ms ease-in-out;
+          transform: translateY(-100%);
+        }
+      </style>
   </head>
 
   <body class="flex flex-col items-center justify-center min-h-screen p-4">
 
     <!-- Navbar -->
     <nav class="w-full bg-black text-white py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50">
-      <div class="text-xl font-bold">MotoStore</div>
-      <div class="hidden md:flex space-x-6">
-        <a href="#" class="hover:text-gray-300">Home</a>
-        <a href="#" class="hover:text-gray-300">Modelos</a>
-        <a href="#" class="hover:text-gray-300">Contato</a>
+        <div class="text-xl font-bold">MotoStore</div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="hover:text-gray-300">Home</a>
+          <a href="#" class="hover:text-gray-300">Modelos</a>
+          <a href="#" class="hover:text-gray-300">Contato</a>
+        </div>
+        <div class="md:hidden">
+          <button id="menu-button" class="focus:outline-none">
+            <i data-feather="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </nav>
+  
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden flex-col bg-black text-white absolute top-16 left-0 w-full space-y-4 py-4 px-6 z-40">
+        <a href="#" class="hover:text-gray-300 block">Home</a>
+        <a href="#" class="hover:text-gray-300 block">Modelos</a>
+        <a href="#" class="hover:text-gray-300 block">Contato</a>
       </div>
-      <div class="md:hidden">
-        <button id="menu-button" class="focus:outline-none">
-          <i data-feather="menu" class="w-6 h-6"></i>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden flex-col bg-black text-white absolute top-16 left-0 w-full space-y-4 py-4 px-6 z-40">
-      <a href="#" class="hover:text-gray-300">Home</a>
-      <a href="#" class="hover:text-gray-300">Modelos</a>
-      <a href="#" class="hover:text-gray-300">Contato</a>
-    </div>
-
-    
 
     <!-- Swiper -->
     <div class="swiper mySwiper w-72 h-[418px] mt-40"> <!-- Ajuste para dar espaço à navbar -->
@@ -136,7 +150,7 @@
             <img src="imagens/moto_preta.jpg" alt="Viagens" class="object-contain" style="height: 248px;" />
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between bg-white">
-            <p class="text-gray-600 text-sm">Uma combinação perfeita de potência, eficiência e design moderno. Planeje sua próxima aventura inesquecível!</p>
+            <p class="text-gray-600 text-sm">Uma combinação perfeita de potência, eficiência e design moderno.</p>
             <div class="mt-4">
               <button class="btn-red text-white px-4 py-2 rounded-lg transition">Saiba Mais</button>
             </div>
@@ -158,6 +172,26 @@
         },
       });
       feather.replace();
+
+      const menuButton = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      let menuOpen = false;
+
+      menuButton.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        if(menuOpen) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('flex', 'mobile-menu-enter-active');
+          mobileMenu.classList.remove('mobile-menu-leave-active');
+        } else {
+          mobileMenu.classList.add('mobile-menu-leave-active');
+          setTimeout(() => {
+            mobileMenu.classList.remove('flex', 'mobile-menu-enter-active');
+            mobileMenu.classList.add('hidden');
+          }, 300);
+        }
+      });
     </script>
   </body>
 </html>
