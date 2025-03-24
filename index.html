@@ -34,29 +34,18 @@
         .btn-red:active {
           background-color: #000000 !important;
         }
-         
+        .mobile-menu-enter {
+  transform: translateX(-100%);
+}
+.mobile-menu-enter-active {
+  transition: transform 300ms ease-in-out;
+  transform: translateX(0);
+}
+.mobile-menu-leave-active {
+  transition: transform 300ms ease-in-out;
+  transform: translateX(-100%);
+}
 
-         /* Estado inicial - menu oculto à esquerda */
-    /* Animação Menu Mobile */
-    .mobile-menu-enter {
-      transform: translateX(-100%);
-    }
-
-    .mobile-menu-enter-active {
-      transition: transform 300ms ease-in-out;
-      transform: translateX(0);
-    }
-
-    .mobile-menu-leave-active {
-      transition: transform 300ms ease-in-out;
-      transform: translateX(-100%);
-    }
-
-    /* Animação do Ícone */
-    .icon-rotate {
-      transition: transform 300ms ease-in-out;
-      transform: rotate(90deg);
-    }
       </style>
   </head>
 
@@ -64,34 +53,29 @@
 
  <!-- Navbar -->
  <nav class="w-full bg-black text-white py-4 px-6 flex justify-between items-center fixed top-0 left-0 z-50">
-
-    <!-- Botão Menu -->
-    <div class="md:hidden">
-      <button id="menu-button" class="focus:outline-none">
-        <i data-feather="menu" id="menu-icon" class="w-8 h-8 transition-transform duration-300"></i>
+    <div class="md:hidden relative">
+      <button id="menu-button" class="focus:outline-none relative w-8 h-8 flex items-center justify-center">
+        <i id="menu-icon" class="w-8 h-8 transition-transform duration-300"></i>
       </button>
     </div>
-
-    <!-- Logo Central -->
-    <div class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2">
+  
+    <div id="logo" class="text-xl font-bold absolute left-1/2 transform -translate-x-1/2 transition-all duration-300">
       MotoStore
     </div>
-
-    <!-- Menu Desktop -->
+  
     <div class="hidden md:flex space-x-6">
       <a href="#" class="hover:text-gray-300">Home</a>
       <a href="#" class="hover:text-gray-300">Modelos</a>
       <a href="#" class="hover:text-gray-300">Contato</a>
     </div>
   </nav>
-
-  <!-- Menu Mobile -->
+  
   <div id="mobile-menu" class="fixed top-16 left-0 w-full h-screen bg-black text-white flex-col space-y-4 py-4 px-6 z-40 hidden">
     <a href="#" class="hover:text-gray-300 block">Home</a>
     <a href="#" class="hover:text-gray-300 block">Modelos</a>
     <a href="#" class="hover:text-gray-300 block">Contato</a>
   </div>
-
+  
     <!-- Swiper -->
     <div class="swiper mySwiper w-72 h-[418px] mt-40"> <!-- Ajuste para dar espaço à navbar -->
       <div class="swiper-wrapper">
@@ -180,55 +164,72 @@
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        effect: "cards",
-        grabCursor: true,
-        cardsEffect: {
-          slideShadows: false,
-        },
-      });
-      feather.replace();
+<script>
+  // Inicializa o Swiper
+  const swiper = new Swiper(".mySwiper", {
+    effect: "cards",
+    grabCursor: true,
+    cardsEffect: {
+      slideShadows: false,
+    },
+  });
 
-    const menuButton = document.getElementById('menu-button');
-    const menuIcon = document.getElementById('menu-icon');
-    const mobileMenu = document.getElementById('mobile-menu');
+// Inicialmente carrega o ícone
+feather.replace();
 
-    let menuOpen = false;
+const menuButton = document.getElementById('menu-button');
+const menuIcon = document.getElementById('menu-icon');
+const mobileMenu = document.getElementById('mobile-menu');
+const logo = document.getElementById('logo');
 
-    menuButton.addEventListener('click', () => {
-      if (!menuOpen) {
-        // Abrir menu
-        mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('flex', 'mobile-menu-enter');
-        void mobileMenu.offsetWidth; // Forçar reflow
-        mobileMenu.classList.add('mobile-menu-enter-active');
-        mobileMenu.classList.remove('mobile-menu-enter');
+let menuOpen = false;
 
-        // Trocar ícone para X com animação
-        menuIcon.setAttribute('data-feather', 'x');
-        feather.replace();
-        menuIcon.classList.add('icon-rotate');
+function updateIcon(iconName) {
+  menuIcon.innerHTML = ''; // Remove o SVG antigo
+  menuIcon.setAttribute('data-feather', iconName);
+  feather.replace();
+}
 
-        menuOpen = true;
-      } else {
-        // Fechar menu
-        mobileMenu.classList.add('mobile-menu-leave-active');
-        mobileMenu.classList.remove('mobile-menu-enter-active');
+updateIcon('menu'); // Define o ícone inicial
 
-        setTimeout(() => {
-          mobileMenu.classList.remove('flex', 'mobile-menu-leave-active');
-          mobileMenu.classList.add('hidden');
-        }, 300);
+menuButton.addEventListener('click', () => {
+  if (!menuOpen) {
+    // Abre o menu
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('flex');
 
-        // Voltar ícone para menu com animação
-        menuIcon.setAttribute('data-feather', 'menu');
-        feather.replace();
-        menuIcon.classList.remove('icon-rotate');
+    void mobileMenu.offsetWidth;
 
-        menuOpen = false;
-      }
-    });
-    </script>
+    mobileMenu.classList.add('mobile-menu-enter-active');
+    mobileMenu.classList.remove('mobile-menu-leave-active');
+
+    // Troca ícone para X
+    updateIcon('x');
+
+   
+
+    menuOpen = true;
+  } else {
+    // Fecha o menu
+    mobileMenu.classList.add('mobile-menu-leave-active');
+    mobileMenu.classList.remove('mobile-menu-enter-active');
+
+    setTimeout(() => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    }, 300);
+
+    // Volta ícone para hambúrguer
+    updateIcon('menu');
+
+    // Volta logo
+    logo.textContent = 'MotoStore';
+
+    menuOpen = false;
+  }
+});
+
+</script>
+
   </body>
 </html>
