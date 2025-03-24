@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scroll Down Animation</title>
+  <style>
+    body {
+      background-color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .scroll-down {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .scroll-down span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-bottom: 3px solid white;
+      border-right: 3px solid white;
+      transform: rotate(45deg);
+      animation: move 1.5s infinite;
+      opacity: 0;
+    }
+
+    .scroll-down span:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .scroll-down span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .scroll-down span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes move {
+      0% {
+        opacity: 0;
+        transform: rotate(45deg) translateY(-10px);
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(45deg) translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(45deg) translateY(10px);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Scroll para baixo</h2>
+  <div class="scroll-down" id="scrollDown">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <script>
+    // Opcional: Esconde as setas quando o usuário scrollar pra baixo
+    window.addEventListener('scroll', function() {
+      const scrollDown = document.getElementById('scrollDown');
+      if (window.scrollY > 50) {
+        scrollDown.classList.add('hidden');
+      } else {
+        scrollDown.classList.remove('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
