@@ -76,7 +76,7 @@
     .hero {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 70vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -163,6 +163,7 @@ background: linear-gradient(to bottom right, #333333, #000000);
       border-radius: 8px;
       width: 200px;
     }
+    
 
     .feature img {
       width: 50px;
@@ -219,6 +220,7 @@ background: linear-gradient(to bottom right, #333333, #000000);
 }
 
     @media (max-width: 768px) {
+     
         nav {
             flex-direction: column;
             background-color: #fff;
@@ -250,17 +252,45 @@ background: linear-gradient(to bottom right, #333333, #000000);
             text-align: center;
         }
 
+        
         .hero {
             height: auto;
             padding: 50px 20px;
             gap: 20px;
         }
-     
-    
+        .features {
+  display: flex;
+  flex-wrap: nowrap; /* Impede a quebra de linha */
+  justify-content: space-between; /* Distribui os itens igualmente */
+  gap: 10px; /* Espaçamento entre os itens */
+}
+
+.feature {
+  flex: 1 1 auto; /* Permite que os itens se ajustem dentro do contêiner */
+  min-width: 100px; /* Tamanho mínimo para evitar que fiquem muito pequenos */
+  max-width: 33%; /* Limita a largura máxima a 33% para que caibam três itens */
+  text-align: center; /* Alinha o texto ao centro */
+  padding: 10px; /* Adiciona algum espaçamento interno */
+}
+
+.feature h3 {
+  font-size: 1.0rem; /* Ajusta o tamanho do título */
+  margin: 10px 0; /* Espaçamento acima e abaixo do título */
+  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
+
+.feature p {
+  font-size: 0.8rem; /* Ajusta o tamanho do texto */
+  margin: 0; /* Remove margem extra */
+  padding: 0; /* Remove padding extra */
+  word-wrap: break-word; /* Permite quebra de palavras longas */
+}
+
 
     }
 
     @media (min-width: 768px) {
+        
       .hero-content {
         flex-direction: row;
         align-items: center;
