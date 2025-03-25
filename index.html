@@ -20,7 +20,7 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background-color: #121212;
+      background-color: #ffffff;
       display: flex;
       flex-direction: column;
     }
@@ -145,7 +145,62 @@
       height: 50px;
       margin-bottom: 10px;
     }
-    
+    .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 16px;
+        }
+       
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            padding: 0;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+            height: 250px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+           margin-top: 50px;
+            width: 50%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .card .title-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background:#000000;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .card p {
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            color: #000000;
+        }
+
     #map {
       height: 20vh;
       width: 40vh;
@@ -260,8 +315,23 @@
   padding: 0; /* Remove padding extra */
   word-wrap: break-word; /* Permite quebra de palavras longas */
 }
+.grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
+            .card {
+          
+          
+            height: 250px;
+            width: 180px;
 
+        }
+        .card img {
+            width: 100%;
+            height: 166px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
 
     }
 
@@ -319,20 +389,44 @@
         <div class="feature">
           <img src="imagens/scooter.png" alt="Ícone 1" />
           <h3>Bikes</h3>
-         
+          <p>Veja nossos modelos disponiveis!</p>
         </div>
         <div class="feature">
           <img src="imagens/toolbox.png" alt="Ícone 2" />
           <h3>Manutenção</h3>
-          
+          <p>Tem algum problema? Ajuste conosco!</p>
         </div>
         <div class="feature">
           <img src="imagens/spare-parts.png" alt="Ícone 3" />
           <h3>Acessórios</h3>
-         
+          <p>De uma turbinada na sua aventura!</p>
         </div>
         
       </section>
+      <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="title-box">C30 1000W </div>
+                <img src="imagens/C30_100w-removebg-preview.png" alt="Produto 1">
+                <p>R$ 9.980</p>
+            </div>
+            <div class="card">
+                <div class="title-box">X11 2000W</div>
+                <img src="imagens/britanica-removebg-preview.png" alt="Produto 2">
+                <p>R$ 8.999</p>
+            </div>
+            <div class="card">
+                <div class="title-box">A60 500W</div>
+                <img src="imagens/motinho-removebg-preview.png" alt="Produto 3">
+                <p>R$ 5.980</p>
+            </div>
+            <div class="card">
+                <div class="title-box">X13 PRO</div>
+                <img src="imagens/moto_azul.png" alt="Produto 4">
+                <p>R$ 8.999</p>
+            </div>
+        </div>
+    </div>
 </main>
 
   <footer>
