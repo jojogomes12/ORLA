@@ -149,9 +149,7 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
-            padding-bottom: 16px;
         }
-       
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -164,8 +162,7 @@
             border-radius: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             transition: box-shadow 0.3s ease-in-out;
-            height: 250px;
-            width: 200px;
+            height: 460px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -176,9 +173,8 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
         .card img {
-           margin-top: 50px;
-            width: 90%;
-            height: 130px;
+            width: 100%;
+            height: 180px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -186,7 +182,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background:#000000;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 5px 10px;
             border-radius: 8px;
@@ -194,11 +190,50 @@
             font-weight: bold;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        .card p {
+        .card .promo-box {
             position: absolute;
-            top: 50px;
-            left: 10px;
-            color: #000000;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #e60000;
+            margin-top: 10px;
+        }
+        .card .discount {
+            font-size: 0.9em;
+            color: #008000;
+            font-weight: bold;
+        }
+        .card .installments {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .card p {
+            color: #666;
+        }
+        .card .buy-button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .card .buy-button:hover {
+            background: #cc5500;
         }
 
     #map {
@@ -322,13 +357,13 @@
             .card {
           
           
-            height: 250px;
+            height: 280px;
             width: 180px;
 
         }
         .card img {
             width: 100%;
-            height: 166px;
+            height: 160px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -404,26 +439,35 @@
         
       </section>
       <div class="container">
+        <h1>Bikes</h1>
         <div class="grid">
             <div class="card">
-                <div class="title-box">C30 1000W </div>
+                <div class="title-box">C30 1000W</div>
                 <img src="imagens/C30_100w-removebg-preview.png" alt="Produto 1">
-                <p>R$ 9.980</p>
+                <div class="price">R$ 9,980</div>
+                <div class="installments">ou 12x de R$ 19,99 sem juros</div>
+                <button class="buy-button">Comprar</button>
             </div>
             <div class="card">
                 <div class="title-box">X11 2000W</div>
-                <img src="imagens/britanica-removebg-preview.png" alt="Produto 2">
-                <p>R$ 8.999</p>
+                <img src="imagens/britanica-removebg-preview.png" alt="Produto 1">
+                <div class="price">R$ 8,999</div>
+                <div class="installments">ou 12x de R$ 19,99 sem juros</div>
+                <button class="buy-button">Comprar</button>
             </div>
             <div class="card">
                 <div class="title-box">A60 500W</div>
-                <img src="imagens/motinho-removebg-preview.png" alt="Produto 3">
-                <p>R$ 5.980</p>
+                <img src="imagens/A60_500W.png" alt="Produto 1">
+                <div class="price">R$ 5.980</div>
+                <div class="installments">ou 12x de R$ 19,99 sem juros</div>
+                <button class="buy-button">Comprar</button>
             </div>
             <div class="card">
                 <div class="title-box">X13 PRO</div>
-                <img src="imagens/moto_azul.png" alt="Produto 4">
-                <p>R$ 8.999</p>
+                <img src="imagens/X13PRO.png" alt="Produto 1">
+                <div class="price">R$ 8.999 </div>
+                <div class="installments">ou 12x de R$ 19,99 sem juros</div>
+                <button class="buy-button">Comprar</button>
             </div>
         </div>
     </div>
