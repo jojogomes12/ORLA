@@ -120,44 +120,19 @@
         border-radius: 5px;
     }
 
-    .feature-card {
-background: linear-gradient(to bottom right, #333333, #000000);
-      padding: 20px;
-      
-      border-radius: 8px;
-      width: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   
-    }
-    .feature-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .feature-card h3 {
-      font-size: 22px;
-      color: #fefeff;
-      border-radius: 50px;
-      background-color: #000000;
-      padding: 0 20px;
-      margin-left: -130px;
-    }
- .feature-card p{
-    margin-left: -160px;
- }
+    
     .features {
       display: flex;
-      flex-wrap: wrap;
+     
       justify-content: center;
       gap: 20px;
       padding: 40px 20px;
       background-color: #fff;
     }
 
-    .features .feature {
-      background-color: #f9f9f9;
+     .feature {
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+      background-color: #ffffff;
       padding: 20px;
       text-align: center;
       border-radius: 8px;
@@ -260,12 +235,12 @@ background: linear-gradient(to bottom right, #333333, #000000);
         }
         .features {
   display: flex;
-  flex-wrap: nowrap; /* Impede a quebra de linha */
   justify-content: space-between; /* Distribui os itens igualmente */
   gap: 10px; /* Espaçamento entre os itens */
 }
 
 .feature {
+    flex-wrap: nowrap;
   flex: 1 1 auto; /* Permite que os itens se ajustem dentro do contêiner */
   min-width: 100px; /* Tamanho mínimo para evitar que fiquem muito pequenos */
   max-width: 33%; /* Limita a largura máxima a 33% para que caibam três itens */
@@ -285,6 +260,7 @@ background: linear-gradient(to bottom right, #333333, #000000);
   padding: 0; /* Remove padding extra */
   word-wrap: break-word; /* Permite quebra de palavras longas */
 }
+
 
 
     }
@@ -343,18 +319,19 @@ background: linear-gradient(to bottom right, #333333, #000000);
         <div class="feature">
           <img src="imagens/scooter.png" alt="Ícone 1" />
           <h3>Bikes</h3>
-          <p>Veja nossos modelos disponiveis!</p>
+         
         </div>
         <div class="feature">
           <img src="imagens/toolbox.png" alt="Ícone 2" />
           <h3>Manutenção</h3>
-          <p>Tem algum problema ajuste conosco!</p>
+          
         </div>
         <div class="feature">
           <img src="imagens/spare-parts.png" alt="Ícone 3" />
           <h3>Acessórios</h3>
-          <p>De uma turbinada na sua aventura!</p>
+         
         </div>
+        
       </section>
 </main>
 
@@ -401,14 +378,6 @@ background: linear-gradient(to bottom right, #333333, #000000);
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-
     const menuToggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
 
