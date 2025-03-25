@@ -70,77 +70,54 @@
     }
 
     main {
-      flex: 1;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      width: 100%;
+        flex: 1;
     }
 
     .hero {
-      background-color: #181818;
-      width: 100%;
-      margin: 1px auto;
-      padding: 80px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
-      gap: 20px;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
     }
 
     .hero-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
     }
-
-    .hero-text {
-      text-align: left;
-      max-width: 700px;
-      order: 2;
-    }
-   
 
     .hero-text h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
+        font-size: 32px;
+        margin-bottom: 20px;
     }
 
     .hero-text p {
-      font-size: 18px;
-    }
-
-    .hero img {
-      max-width: 500px;
-      width: 100%;
-      height: auto;
-      order: 1;
+        font-size: 18px;
     }
 
     .hero button {
-      padding: 10px 20px;
-      margin-top: 15px;
-      background-color: #ff9900;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /* Swiper Styles */
-    .swiper {
-      width: 100%;
-      padding: 40px 0;
-    }
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
+        padding: 10px 20px;
+        margin-top: 15px;
+        background-color: #ff9900;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
     }
 
     .feature-card {
@@ -242,50 +219,45 @@ background: linear-gradient(to bottom right, #333333, #000000);
 }
 
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        width: 100%;
-        z-index: 1000; /* Aqui está a mágica! */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aqui adicionamos a sombra */
-        display: none;
-         
-    }
-   
-      nav.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-  
-      .hero-content {
-        flex-direction: column;
-        align-items: center;
-      }
+        nav {
+            flex-direction: column;
+            background-color: #fff;
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
 
-      .hero-text {
-        margin-top: -40px;
-        position: relative;
-        order: 2;
-        text-align: center;
-      }
-      .hero {
-        height: auto;
-        margin: 1px auto;
-        padding: 50px 20px;
-        gap: 20px;
-      }
-      .hero img {
-        order: 1;
-      }
+        nav.active {
+            display: flex;
+        }
 
-      .swiper{
-       margin-top: -50px;
-      }
+        .menu-toggle {
+            display: flex;
+        }
+
+        .hero-content {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-text {
+            margin-top: -40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero {
+            height: auto;
+            padding: 50px 20px;
+            gap: 20px;
+        }
+     
+    
+
     }
 
     @media (min-width: 768px) {
@@ -322,71 +294,40 @@ background: linear-gradient(to bottom right, #333333, #000000);
       <a href="#">Contato</a>
     </nav>
   </header>
-
   <main>
     <section class="hero">
-      <div class="container hero-content">
-
-        <!-- Swiper -->
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="feature-card">
-                <div class="icon-container">
-                
-                  </div>
-                <img src="imagens/moto_amarela-removebg-preview.png" alt="Ícone 1" />
-                <h3>X6 1000W</h3>
-                <p>R$ 3900</p>
-              </div>
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="videos/Landscape.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos em HTML5.
+        </video>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Bem-vindo!</h2>
+                <p>Na ORLA, a liberdade começa com um simples giro. Unimos eficiência, 
+                    mobilidade e sustentabilidade para levar você mais longe. Descubra nossas scooters elétricas e transforme seus caminhos com economia, estilo e consciência.</p>
+                <button>Saiba Mais</button>
             </div>
-            <div class="swiper-slide">
-              <div class="feature-card">
-                <img src="imagens/moto_cinza-removebg-preview.png" alt="Ícone 2" />
-                <h3>701 3000W</h3>
-                <p>R$6,500</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="feature-card">
-                <img src="imagens/moto_preta-removebg-preview.png" alt="Ícone 3" />
-                <h3>X11 3000W</h3>
-                <p>R$ 5,300</p>
-              </div>
-            </div>
-          </div>
-          <!-- Bullets -->
-          <div class="pagination-container">
-          <div class="swiper-pagination"></div>
         </div>
-    </div>
-        <div class="hero-text">
-          <h2>Bem-vindo!</h2>
-          <p>Na ORLA, a liberdade começa com um simples giro. Unimos eficiência, 
-            mobilidade e sustentabilidade para levar você mais longe. Descubra nossas scooters elétricas e transforme seus caminhos com economia, estilo e consciência.</p>
-          <button>Saiba Mais</button>
-        </div>
-      </div>
     </section>
-
     <section class="features">
-      <div class="feature">
-        <img src="imagens/scooter.png" alt="Ícone 1" />
-        <h3>Bikes</h3>
-        <p>Veja nossos modelos disponiveis!</p>
-      </div>
-      <div class="feature">
-        <img src="imagens/toolbox.png" alt="Ícone 2" />
-        <h3>Manutenção</h3>
-        <p>Tem algum problema ajuste conosco!</p>
-      </div>
-      <div class="feature">
-        <img src="imagens/spare-parts.png" alt="Ícone 3" />
-        <h3>Acessórios</h3>
-        <p>De uma turbinada na sua aventura!</p>
-      </div>
-    </section>
-  </main>
+        <div class="feature">
+          <img src="imagens/scooter.png" alt="Ícone 1" />
+          <h3>Bikes</h3>
+          <p>Veja nossos modelos disponiveis!</p>
+        </div>
+        <div class="feature">
+          <img src="imagens/toolbox.png" alt="Ícone 2" />
+          <h3>Manutenção</h3>
+          <p>Tem algum problema ajuste conosco!</p>
+        </div>
+        <div class="feature">
+          <img src="imagens/spare-parts.png" alt="Ícone 3" />
+          <h3>Acessórios</h3>
+          <p>De uma turbinada na sua aventura!</p>
+        </div>
+      </section>
+</main>
+
   <footer>
    
 <p>AV BENVINDO TAQUES HORTA 5092, quadra 293, lote 11, loja 103. Jardim Atlântico Central, Itaipuaçu, Maricá, RJ</p>
