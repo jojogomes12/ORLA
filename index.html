@@ -140,27 +140,41 @@ main {
   border-radius: 5px;
 }
 
-.features {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 20px;
-  background-color: #fff;
-}
+  /* Estilos gerais */
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer; /* Tornar a área do carrossel clicável */
+  }
 
-.feature {
-  background-color: #ffffff;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  width: 200px;
-}
+  .feature {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    width: 200px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    opacity: 0.7;
+  }
 
-.feature img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-}
+  .feature img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  /* Efeito de destaque no item centralizado */
+  .feature.active {
+    transform: scale(1.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    z-index: 2;
+  }
 
 .container {
   max-width: 1200px;
@@ -328,7 +342,7 @@ footer {
 
   nav {
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #1a1a1a;
     position: absolute;
     top: 80px;
     right: 0;
@@ -338,7 +352,7 @@ footer {
     display: none;
   }
   nav a{
-   color: rgb(0, 0, 0);
+   color: rgb(255, 253, 253);
   }
 
   nav.active {
@@ -466,23 +480,23 @@ footer {
         </div>
     </section>
     <section class="features">
-        <div class="feature">
+      <div class="feature">
           <img src="imagens/scooter.png" alt="Ícone 1" />
           <h3>Bikes</h3>
-          <p>Veja nossos modelos disponiveis!</p>
-        </div>
-        <div class="feature">
+          <p>Veja nossos modelos disponíveis!</p>
+      </div>
+      <div class="feature">
           <img src="imagens/toolbox.png" alt="Ícone 2" />
           <h3>Manutenção</h3>
           <p>Agende aqui conosco!</p>
-        </div>
-        <div class="feature">
+      </div>
+      <div class="feature">
           <img src="imagens/spare-parts.png" alt="Ícone 3" />
           <h3>Acessórios</h3>
           <p>Dê uma turbinada na sua aventura!</p>
-        </div>
-        
-      </section>
+      </div>
+  </section>
+  
       <div class="container">
         <h1>Bikes</h1>
         <div class="grid">
@@ -557,5 +571,45 @@ footer {
       nav.classList.toggle('active');
     });
   </script>
+
+
+<script>
+  // Seleciona as features
+  const features = document.querySelectorAll('.feature');
+
+  let currentIndex = 0; // Índice do item centralizado
+
+  function updateCarousel() {
+    // Remove a classe 'active' de todos os itens
+    features.forEach((feature, index) => {
+      feature.classList.remove('active');
+      
+      // Marca o item centralizado com a classe 'active'
+      if (index === currentIndex) {
+        feature.classList.add('active');
+      }
+    });
+  }
+
+  // Inicializa o carrossel
+  updateCarousel();
+
+  // Adiciona navegação clicando na feature
+  features.forEach((feature, index) => {
+    feature.addEventListener('click', () => {
+      currentIndex = index; // Atualiza o índice para o item clicado
+      updateCarousel(); // Atualiza a posição do carrossel
+    });
+  });
+
+  // Para navegação manual (se quiser adicionar botões de navegação, por exemplo)
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      nextItem(); // Avança ao próximo item
+    } else if (event.key === 'ArrowLeft') {
+      prevItem(); // Volta ao item anterior
+    }
+  });
+</script>
 </body>
 </html>
