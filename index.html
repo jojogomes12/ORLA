@@ -92,7 +92,6 @@ nav a {
 main {
   flex: 1;
 }
-
 .hero {
   position: relative;
   width: 100%;
@@ -112,13 +111,29 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2; /* O vídeo ficará atrás da camada de sobreposição */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adiciona um fade escuro com opacidade de 50% */
+  z-index: -1; /* Coloca a sobreposição entre o vídeo e o conteúdo */
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 700px;
+}
+
+.hero-text {
+  position: relative;
+  padding: 20px;
+  z-index: 2; /* Garantir que o texto fique acima da sobreposição escura */
 }
 
 .hero-text h2 {
@@ -139,6 +154,7 @@ main {
   cursor: pointer;
   border-radius: 5px;
 }
+
 
   /* Estilos gerais */
   .features {
@@ -466,19 +482,22 @@ footer {
   
   <main>
     <section class="hero">
-        <video autoplay loop muted playsinline class="background-video">
-            <source src="video/Landscape.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos em HTML5.
-        </video>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h2>Bem-vindo!</h2>
-                <p>Na ORLA, a liberdade começa com um simples giro. Unimos eficiência, 
-                    mobilidade e sustentabilidade para levar você mais longe. Descubra nossas scooters elétricas e transforme seus caminhos com economia, estilo e consciência.</p>
-                <button>Saiba Mais</button>
-            </div>
-        </div>
-    </section>
+      <video autoplay loop muted playsinline class="background-video">
+          <source src="video/Landscape.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos em HTML5.
+      </video>
+      <div class="overlay"></div> <!-- Adicionamos uma camada de sobreposição escura -->
+      <div class="container hero-content">
+          <div class="hero-text">
+              <h2>Bem-vindo!</h2>
+              <p>Na ORLA, a liberdade começa com um simples giro. Unimos eficiência, 
+                  mobilidade e sustentabilidade para levar você mais longe. Descubra nossas scooters elétricas e transforme seus caminhos com economia, estilo e consciência.</p>
+              <button>Saiba Mais</button>
+          </div>
+      </div>
+  </section>
+  
+  
     <section class="features">
       <div class="feature">
           <img src="imagens/scooter.png" alt="Ícone 1" />
