@@ -1,33 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carregar Arquivo JSON</title>
-</head>
-<body>
-    <h2>Carregar Arquivo JSON</h2>
-    
-    <input type="file" id="file-input" />
-    
-    <script>
-        document.getElementById('file-input').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file && file.type === 'application/json') {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        const jsonData = JSON.parse(e.target.result);
-                        console.log('Dados carregados:', jsonData);
-                    } catch (err) {
-                        alert('Erro ao analisar o arquivo JSON');
-                    }
-                };
-                reader.readAsText(file);
-            } else {
-                alert('Por favor, selecione um arquivo JSON válido');
-            }
-        });
-    </script>
-</body>
-</html>
+{
+    "nome": "João",
+    "idade": 28,
+    "cidade": "São Paulo",
+    "habilidades": ["JavaScript", "PHP", "C++"]
+  }
+  

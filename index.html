@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ORLA</title>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
   <style>
@@ -482,36 +480,25 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  const endereco = "AV BENVINDO TAQUES HORTA 5092, Jardim Atlântico Central, Itaipuaçu, Maricá, RJ";
+  document.addEventListener("DOMContentLoaded", function () {
+    const latitude = -22.970639;
+    const longitude = -42.952611;
 
-  fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.length > 0) {
-        const latitude = data[0].lat;
-        const longitude = data[0].lon;
+    var map = L.map('map').setView([latitude, longitude], 17);
 
-        var map = L.map('map').setView([latitude, longitude], 17);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+    // Link para o Google Maps com coordenadas
+    const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
 
-        // Link para o Google Maps com coordenadas
-        const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-
-        L.marker([latitude, longitude]).addTo(map)
-          .bindPopup(`<b>Estamos aqui!</b><br><a href="${googleMapsLink}" target="_blank">Ver no Google Maps</a>`)
-          .openPopup();
-      } else {
-        document.getElementById('map').innerHTML = "Endereço não encontrado.";
-      }
-    })
-    .catch(error => {
-      console.error('Erro:', error);
-      document.getElementById('map').innerHTML = "Erro ao carregar o mapa.";
-    });
+    L.marker([latitude, longitude]).addTo(map)
+      .bindPopup(`<b>Estamos aqui!</b><br><a href="${googleMapsLink}" target="_blank">Ver no Google Maps</a>`)
+      .openPopup();
+  });
 </script>
+
     &copy; 2025 ORLA. Todos os direitos reservados.
   </footer>
 
