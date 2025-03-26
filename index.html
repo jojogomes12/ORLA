@@ -244,19 +244,6 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.card .promo-box {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 0.9em;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 .card .price {
   font-size: 1.2em;
   font-weight: bold;
@@ -264,11 +251,6 @@ main {
   margin-top: 10px;
 }
 
-.card .discount {
-  font-size: 0.9em;
-  color: #008000;
-  font-weight: bold;
-}
 
 .card .installments {
   font-size: 0.9em;
@@ -294,6 +276,46 @@ main {
 
 .card .buy-button:hover {
   background: #cc5500;
+}
+
+#manutencao-form {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#manutencao-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+#manutencao-form label {
+  margin-top: 10px;
+}
+
+#manutencao-form input,
+#manutencao-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#manutencao-form button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#manutencao-form button:hover {
+  background-color: #cc5500;
 }
 
 #map {
@@ -497,58 +519,74 @@ footer {
       </div>
   </section>
   
-  
-    <section class="features">
-      <div class="feature">
-          <img src="imagens/scooter.png" alt="Ícone 1" />
-          <h3>Bikes</h3>
-          <p>Veja nossos modelos disponíveis!</p>
-      </div>
-      <div class="feature">
-          <img src="imagens/toolbox.png" alt="Ícone 2" />
-          <h3>Manutenção</h3>
-          <p>Agende aqui conosco!</p>
-      </div>
-      <div class="feature">
-          <img src="imagens/spare-parts.png" alt="Ícone 3" />
-          <h3>Acessórios</h3>
-          <p>Dê uma turbinada na sua aventura!</p>
-      </div>
+  <section class="features">
+    <div class="feature" data-feature="bikes">
+      <img src="imagens/scooter.png" alt="Ícone 1" />
+      <h3>Bikes</h3>
+      <p>Veja nossos modelos disponíveis!</p>
+    </div>
+    <div class="feature" data-feature="manutencao">
+      <img src="imagens/toolbox.png" alt="Ícone 2" />
+      <h3>Manutenção</h3>
+      <p>Agende aqui conosco!</p>
+    </div>
+    <div class="feature" data-feature="acessorios">
+      <img src="imagens/spare-parts.png" alt="Ícone 3" />
+      <h3>Acessórios</h3>
+      <p>Dê uma turbinada na sua aventura!</p>
+    </div>
   </section>
   
-      <div class="container">
-        <h1>Bikes</h1>
-        <div class="grid">
-            <div class="card">
-                <div class="title-box">C30 1000W</div>
-                <img src="imagens/C30_100w-removebg-preview.png" alt="Produto 1">
-                <div class="price">R$ 9.980</div>
-                <div class="installments">ou 10x de R$ 998,00 sem juros</div>
-                <button class="buy-button">Comprar</button>
-            </div>
-            <div class="card">
-                <div class="title-box">X11 1000W</div>
-                <img src="imagens/britanica-removebg-preview.png" alt="Produto 1">
-                <div class="price">R$ 10.999</div>
-                <div class="installments">ou 12x de R$ 749,00 sem juros</div>
-                <button class="buy-button">Comprar</button>
-            </div>
-            <div class="card">
-                <div class="title-box">A60 500W</div>
-                <img src="imagens/a60.png" alt="Produto 1">
-                <div class="price">R$ 5.980</div>
-                <div class="installments">ou 10x de R$ 598,00 sem juros</div>
-                <button class="buy-button">Comprar</button>
-            </div>
-            <div class="card">
-                <div class="title-box">X13 PRO</div>
-                <img src="imagens/X13PRO.png" alt="Produto 1">
-                <div class="price">R$ 11.999 </div>
-                <div class="installments">ou 18x de R$ 499,94 </div>
-                <button class="buy-button">Comprar</button>
-            </div>
-        </div>
+  <div class="container">
+    <h1 id="section-title">Bikes</h1>
+  
+    <!-- Cards de bikes, inicialmente visíveis -->
+    <div id="bikes-cards" class="grid">
+      <div class="card">
+        <div class="title-box">C30 1000W</div>
+        <img src="imagens/C30_100w-removebg-preview.png" alt="Produto 1">
+        <div class="price">R$ 9.980</div>
+        <div class="installments">ou 10x de R$ 998,00 sem juros</div>
+        <button class="buy-button">Comprar</button>
+      </div>
+      <div class="card">
+        <div class="title-box">X11 1000W</div>
+        <img src="imagens/britanica-removebg-preview.png" alt="Produto 1">
+        <div class="price">R$ 10.999</div>
+        <div class="installments">ou 12x de R$ 749,00 sem juros</div>
+        <button class="buy-button">Comprar</button>
+      </div>
+      <div class="card">
+        <div class="title-box">A60 500W</div>
+        <img src="imagens/a60.png" alt="Produto 1">
+        <div class="price">R$ 5.980</div>
+        <div class="installments">ou 10x de R$ 598,00 sem juros</div>
+        <button class="buy-button">Comprar</button>
+      </div>
+      <div class="card">
+        <div class="title-box">X13 PRO</div>
+        <img src="imagens/X13PRO.png" alt="Produto 1">
+        <div class="price">R$ 11.999 </div>
+        <div class="installments">ou 18x de R$ 499,94 </div>
+        <button class="buy-button">Comprar</button>
+      </div>
     </div>
+  
+    <!-- Formulário de Manutenção, inicialmente oculto -->
+    <div id="manutencao-form" style="display:none;">
+      <h2>Agende sua manutenção</h2>
+      <form>
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required>
+        <label for="defeito">Defeito:</label>
+        <input type="text" id="defeito" name="defeito" required>
+        <label for="descricao">Descreva o defeito:</label>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+  
 </main>
 
   <footer>
@@ -629,6 +667,41 @@ footer {
       prevItem(); // Volta ao item anterior
     }
   });
+
+// Seleciona as features e os elementos
+const feature = document.querySelectorAll('.feature');
+const bikesSection = document.getElementById('bikes-cards');
+const manutencaoForm = document.getElementById('manutencao-form');
+const sectionTitle = document.getElementById('section-title');
+
+// Função para atualizar a exibição conforme a opção clicada
+function updateSection(feature) {
+  if (feature === 'bikes') {
+    bikesSection.style.display = 'grid';
+    manutencaoForm.style.display = 'none';
+    sectionTitle.textContent = 'Bikes';
+  } else if (feature === 'manutencao') {
+    bikesSection.style.display = 'none';
+    manutencaoForm.style.display = 'block';
+    sectionTitle.textContent = 'Agendamento de Manutenção';
+  } else {
+    bikesSection.style.display = 'none';
+    manutencaoForm.style.display = 'none';
+  }
+}
+
+// Adiciona evento de clique nas features
+features.forEach(feature => {
+  feature.addEventListener('click', () => {
+    const featureType = feature.getAttribute('data-feature');
+    updateSection(featureType);
+  });
+});
+
+// Inicializa a página exibindo a seção de Bikes
+updateSection('bikes');
+
+
 </script>
 </body>
 </html>
