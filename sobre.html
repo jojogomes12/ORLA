@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* Adicionando animação fade-in */
+        /* Animação fade-in */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -43,6 +43,20 @@
         footer {
             animation-delay: 1.5s;
         }
+
+        /* Estilo do card com sombra mais forte */
+        .card-sobre-nos {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-sobre-nos:hover {
+            transform: translateY(-5px); /* Efeito ao passar o mouse */
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4); /* Sombra mais forte no hover */
+        }
     </style>
 </head>
 <body>
@@ -68,7 +82,7 @@
     <main class="fade-in">
         <h1 class="text-4xl font-bold">Quem Somos?</h1>
 
-        <div class="relative max-w-4xl mx-auto my-16 p-10 bg-white rounded-lg shadow-lg text-center overflow-hidden">
+        <div class="relative max-w-4xl mx-auto my-16 p-10 rounded-lg text-center overflow-hidden card-sobre-nos">
             <!-- Ícones personalizados ao redor do card -->
             <div class="absolute -top-8 -left-8 w-12 h-12">
                 <img src="imagens/fern.png" alt="Folha" class="w-full">
