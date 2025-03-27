@@ -388,12 +388,12 @@
   @media (max-width: 768px) {
     header img {
      margin-top:5px;
-      width: 190px;
+      width: 200px;
     }
   
     .logo-text {
       margin-top:12px;
-      font-size: 8px;
+      font-size: 6px;
       max-width: 300px;
       width: 170px;
       padding-left:20px;
