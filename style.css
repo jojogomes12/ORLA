@@ -387,35 +387,59 @@
   /* Media Queries */
   @media (max-width: 768px) {
     header img {
-     margin-top:5px;
+     margin-top:-15px;
       width: 220px;
     }
   
     .logo-text {
-      margin-top:8px;
+      margin-top:-14px;
       font-size:10px;
       max-width: 300px;
       width: 180px;
     margin-left:8px;
     }
-  
-    nav {
+    .menu-toggle {
+      position: absolute; /* Fixa a posição do menu hamburguer */
+      top: 85px; /* Distância do topo do hero */
+      left: 20px; /* Distância da esquerda */
+      z-index: 1000; /* Garante que fique acima de outros elementos */
+      display: flex; /* Exibe como flexbox */
+      flex-direction: column; /* Coloca as barras em coluna */
+      cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  }
+
+  .menu-toggle span {
+      height: 3px; /* Aumenta a altura das barras para melhor clicabilidade */
+      width: 30px; /* Aumenta a largura das barras */
+      background: #fff; /* Cor das barras */
+      margin: 4px 0; /* Espaçamento entre as barras */
+      border-radius: 2px; /* Bordas arredondadas */
+  }
+
+  .hero {
+      position: relative; /* Garante que o hero seja o contêiner de referência para o menu */
+  }
+
+  nav {
       flex-direction: column;
-      background-color: #1a1a1a;
+      background-color:rgb(0, 0, 0);
       position: absolute;
-      top: 80px;
+      top: 80px; /* Distância do topo do hero */
       right: 0;
       width: 100%;
       z-index: 900;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      display: none;
-    }
+      display: none; /* Inicialmente oculto */
+  }
+
+  nav.active {
+      display: flex; /* Exibe o menu quando ativo */
+  }
+
+ 
     nav a{
      color: rgb(255, 253, 253);
-    }
-  
-    nav.active {
-      display: flex;
+     margin:auto;
     }
   
     .menu-toggle {
@@ -423,7 +447,6 @@
     }
   
    
-  
     .hero-content {
       flex-direction: column;
       align-items: center;
