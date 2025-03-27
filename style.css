@@ -17,7 +17,7 @@
   }
   
   header {
-    background-color: #1a1a1a;
+    background-color:rgb(0, 0, 0);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -387,13 +387,14 @@
   /* Media Queries */
   @media (max-width: 768px) {
     header img {
-      width: 160px;
+      width: 190px;
     }
   
     .logo-text {
-      font-size: 12px;
+      font-size: 8px;
       max-width: 300px;
-      width: 200px;
+      width: 170px;
+      padding-left:20px;
     }
   
     nav {
