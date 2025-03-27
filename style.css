@@ -56,12 +56,14 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+ 
   }
   
   nav a {
     text-decoration: none;
     color: #ffffff;
     padding: 8px 12px;
+    
   }
   
   .menu-toggle {
@@ -69,6 +71,7 @@
     flex-direction: column;
     cursor: pointer;
     margin-top: -6px;
+    
   }
   
   .menu-toggle span {
@@ -77,6 +80,7 @@
     background: #fff;
     margin: 4px 0;
     border-radius: 2px;
+    
   }
   
   main {

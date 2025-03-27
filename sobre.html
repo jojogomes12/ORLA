@@ -8,81 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        /* Animação fade-in */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        /* Aplicando a animação nos itens */
-        header, main, footer {
-            opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        header {
-            animation-delay: 0.5s;
-        }
-
-        main {
-            animation-delay: 1s;
-        }
-
-        footer {
-            animation-delay: 1.5s;
-        }
-
-        /* Estilo do card com sombra mais forte */
-        .card-sobre-nos {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 0 1rem; /* Margem para evitar que fique colado nas bordas */
-        }
-
-        .card-sobre-nos:hover {
-            transform: translateY(-5px); /* Efeito ao passar o mouse */
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4); /* Sombra mais forte no hover */
-        }
-
-        /* Logo responsiva */
-        .logo-container img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Para telas maiores (PC) */
-        @media (min-width: 1024px) {
-            .logo-container img {
-                max-width: 40%; /* Ajuste o valor conforme necessário */
-            }
-        }
-
-        /* Para telas menores (Mobile) */
-        @media (max-width: 768px) {
-            .card-sobre-nos {
-                margin: 0 3rem; /* Aumentando o espaçamento lateral para 3rem no mobile */
-                padding: 2rem; /* Ajustando o padding interno para mais conforto */
-            }
-        }
-    </style>
 </head>
 <body>
-    <header class="fade-in">
+    <header>
         <h1 class="logo-container">
             <img src="imagens/loho.png" alt="Logo">
             <span class="logo-text">Scooters, bicicletas e triciclos elétricos, além de peças, acessórios e assistência técnica especializada. Tudo para sua mobilidade!</span>
@@ -101,9 +29,7 @@
         </nav>
     </header>
 
-    <main class="fade-in">
-    
-
+    <main>
         <div class="relative max-w-4xl mx-auto my-16 p-10 rounded-lg text-center overflow-hidden card-sobre-nos">
             <!-- Ícones personalizados ao redor do card -->
             <div class="absolute -top-8 -left-8 w-12 h-12">
@@ -146,7 +72,7 @@
         </div>
     </main>
 
-    <footer class="fade-in">
+    <footer>
         <p>AV BENVINDO TAQUES HORTA 5092, quadra 293, lote 11, loja 103. Jardim Atlântico Central, Itaipuaçu, Maricá, RJ</p>
         
         <div id="map">Carregando mapa...</div>
