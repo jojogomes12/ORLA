@@ -388,15 +388,15 @@
   @media (max-width: 768px) {
     header img {
      margin-top:5px;
-      width: 200px;
+      width: 220px;
     }
   
     .logo-text {
-      margin-top:12px;
-      font-size: 6px;
+      margin-top:8px;
+      font-size:10px;
       max-width: 300px;
-      width: 170px;
-      padding-left:20px;
+      width: 180px;
+    margin-left:8px;
     }
   
     nav {
@@ -406,7 +406,7 @@
       top: 80px;
       right: 0;
       width: 100%;
-      z-index: 100;
+      z-index: 900;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       display: none;
     }
