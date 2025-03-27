@@ -142,7 +142,7 @@
   .hero button {
     padding: 10px 20px;
     margin-top: 15px;
-    background-color: #ff9900;
+    background-color:  #ff6600;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -221,7 +221,7 @@
   .card img {
     width: 100%;
     height: 180px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
   }
   
@@ -241,7 +241,7 @@
   .card .price {
     font-size: 1.2em;
     font-weight: bold;
-    color: #e60000;
+    color:  #ff6600;
     margin-top: 10px;
   }
   
@@ -395,6 +395,8 @@
       display: flex;
     }
   
+   
+  
     .hero-content {
       flex-direction: column;
       align-items: center;
@@ -472,4 +474,32 @@
       text-align: left;
     }
   }
+  @media (min-width: 800px) {
+    
+  .logo-text {
+    margin-top: -13px;
+    margin-left: -20px;
+    font-size: 15px; 
+    max-width: 300px; 
   
+  }
+  nav a{
+    margin-top: -16px; 
+  }
+  }
+
+  @media (min-width: 1024px) {
+    
+    .logo-text {
+      margin-top: -13px;
+      margin-left: -20px;
+      font-size: 18px; 
+      max-width: 600px; 
+     
+    }
+
+    nav a{
+      margin-top: -16px; 
+    }
+  
+  }
