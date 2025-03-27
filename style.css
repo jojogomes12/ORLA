@@ -387,10 +387,12 @@
   /* Media Queries */
   @media (max-width: 768px) {
     header img {
+     margin-top:5px;
       width: 190px;
     }
   
     .logo-text {
+      margin-top:12px;
       font-size: 8px;
       max-width: 300px;
       width: 170px;
