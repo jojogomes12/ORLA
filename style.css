@@ -468,6 +468,8 @@
       display: flex;
       justify-content: space-between;
       gap: 10px;
+      outline: none;
+            -webkit-tap-highlight-color: transparent;
     }
   
     .feature {
