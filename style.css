@@ -139,16 +139,41 @@
     font-size: 18px;
   }
   
-  .hero button {
-    padding: 10px 20px;
-    margin-top: 15px;
-    background-color:  #ff6600;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
+
+ /* Estilo do botão */
+.hero button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative; /* Relativo para que o scroll-indicator seja posicionado abaixo */
+}
+
+/* Estilo do contêiner das setas */
+.scroll-indicator {
+  position: absolute; /* Posiciona as setas de forma absoluta */
+  top: 100%; /* Faz as setas ficarem abaixo do botão */
+  left: 6%;
+  transform: translateX(-50%); /* Centraliza as setas em relação ao botão */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px; /* Adiciona um pequeno espaço entre o botão e as setas */
+}
+
+/* Estilo das setas */
+.arrow {
+  width: 50px; /* Ajuste o tamanho da imagem */
+  height: 30px;
+  margin: -4px;
+  opacity: 0.8;
+  animation: bounce 1.5s infinite, blink 1.5s infinite alternate;
+}
+
   
     /* Estilos gerais */
     .features {
@@ -341,7 +366,18 @@
       transform: translateY(-5px); /* Sobe 5px */
     }
   }
-  
+  /* Animação de piscar alternado */
+@keyframes blink {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
   footer {
     text-align: center;
     padding: 20px;
@@ -463,6 +499,28 @@
       padding: 50px 20px;
       gap: 20px;
     }
+    /* Estilo do botão */
+.hero button {
+  padding: 10px 20px;
+  margin-top: 15px;
+ 
+}
+
+/* Estilo do contêiner das setas */
+.scroll-indicator {
+  position: absolute; /* Posiciona as setas de forma absoluta */
+  margin-top: -10px; /* Adiciona um pequeno espaço entre o botão e as setas */
+  left: 50%;
+}
+
+/* Estilo das setas */
+.arrow {
+  width: 50px; /* Ajuste o tamanho da imagem */
+  height: 30px;
+  margin: -4px;
+ 
+}
+
   
     .features {
       display: flex;
