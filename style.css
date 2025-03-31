@@ -17,6 +17,8 @@
   }
   
   header {
+    position:fixed;
+
     background-color:rgb(0, 0, 0);
     padding: 10px 20px;
     display: flex;
@@ -24,8 +26,11 @@
     align-items: center;
     flex-wrap: wrap;
     min-height: 80px;
-    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
     color: #ffffff;
+    z-index:99999;
   }
   
   .logo-container {
@@ -420,13 +425,20 @@
     background-color: #000000;
   }
   
-  /* Media Queries */
   @media (max-width: 768px) {
-    header img {
-     margin-top:-15px;
-      width: 220px;
+    header {
+      height: 80px; /* Define uma altura menor */
+      display: flex; /* Alinha os elementos corretamente */
+      align-items: center; /* Centraliza a imagem verticalmente */
+      justify-content: center; /* Centraliza horizontalmente */
+    
     }
   
+    header img {
+      margin-top: -15px;
+      width: 220px;
+      max-height: 100%; /* Garante que a imagem não ultrapasse o header */
+    }
     .logo-text {
       margin-top:-14px;
       font-size:10px;
@@ -436,8 +448,8 @@
     }
     .menu-toggle {
       position: absolute; /* Fixa a posição do menu hamburguer */
-      top: 85px; /* Distância do topo do hero */
-      left: 20px; /* Distância da esquerda */
+      top: 45px; /* Distância do topo do hero */
+      left: 85%; /* Distância da esquerda */
       z-index: 1000; /* Garante que fique acima de outros elementos */
       display: flex; /* Exibe como flexbox */
       flex-direction: column; /* Coloca as barras em coluna */
