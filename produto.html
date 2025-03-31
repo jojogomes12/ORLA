@@ -1,0 +1,94 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script>
+        function toggleHeart() {
+            const heartIcon = document.getElementById('heart-icon');
+            heartIcon.classList.toggle('far');
+            heartIcon.classList.toggle('fas');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            menu.classList.toggle('translate-x-0');
+            menu.classList.toggle('-translate-x-full');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-black text-white p-4 flex justify-between items-center">
+        <div class="text-lg font-bold">Logo</div>
+        <nav class="hidden md:flex space-x-4">
+            <a href="#" class="hover:underline">Home</a>
+            <a href="#" class="hover:underline">Produtos</a>
+            <a href="#" class="hover:underline">Sobre</a>
+            <a href="#" class="hover:underline">Contato</a>
+        </nav>
+        <div class="hidden md:flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+                <img alt="User avatar" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/ILNOhgjNj3pXqQd6rZWVAtrxCklFNUqaRYGIMhPRe6A.jpg" width="40"/>
+                <span>Username</span>
+            </div>
+        </div>
+        <div class="md:hidden">
+            <i id="menu-icon" class="fas fa-bars text-2xl cursor-pointer" onclick="toggleMenu()"></i>
+        </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-y-0 left-0 bg-black z-50 flex flex-col items-start p-4 space-y-2 transform -translate-x-full transition-transform duration-300 w-1/2">
+        <a href="#" class="block text-white hover:underline">Home</a>
+        <a href="#" class="block text-white hover:underline">Produtos</a>
+        <a href="#" class="block text-white hover:underline">Sobre</a>
+        <a href="#" class="block text-white hover:underline">Contato</a>
+        <div class="mt-auto w-full">
+            <div class="bg-gray-700 p-4 flex items-center space-x-2">
+                <div class="w-16 h-16 bg-gray-500 flex items-center justify-center">
+                    <img alt="User avatar" class="w-12 h-12" src="https://storage.googleapis.com/a1aa/image/ILNOhgjNj3pXqQd6rZWVAtrxCklFNUqaRYGIMhPRe6A.jpg"/>
+                </div>
+                <span class="text-white">Username</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mt-4 p-4 bg-white rounded-lg shadow-md">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="relative w-full md:w-1/2 p-4">
+                <img id="main-image" alt="Imagem de um scooter elétrico preto" class="w-full h-auto rounded-lg mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/zE5n85L1YMu35XH8hO1IVeJem_cxZ8ohYIOOVmW4sBY.jpg" width="400"/>
+                <i id="heart-icon" class="far fa-heart absolute top-8 left-8 text-2xl text-black cursor-pointer" onclick="toggleHeart()"></i>
+            </div>
+            <div class="w-full md:w-1/2 p-4 relative">
+                <h1 class="text-2xl font-bold">C30 100W</h1>
+                <div class="flex items-center mt-2">
+                    <div class="flex text-yellow-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <a class="ml-2 text-sm text-gray-600" href="#">(Ver avaliações)</a>
+                </div>
+                <p class="text-2xl font-bold text-gray-800 mt-4">R$ 9.980</p>
+                <p class="text-sm text-gray-600">ou 10x de R$ 998,00 sem juros</p>
+                <p class="text-gray-700 mt-4">
+                    O C30 100W é um scooter elétrico de alto desempenho, ideal para quem busca praticidade e sustentabilidade no dia a dia. Com design moderno e tecnologia de ponta, oferece conforto e segurança em cada percurso. A bateria de longa duração e o motor de 100W garantem viagens rápidas e eficientes. Perfeito para a mobilidade urbana!
+                </p>
+                <i class="fas fa-share-alt absolute top-4 right-4 text-2xl text-black"></i>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center mt-4">
+            <input class="border border-gray-300 rounded-lg p-2 w-full md:w-1/3 mb-4 md:mb-0 md:mr-4" placeholder="Digite seu CEP" type="text"/>
+            <button class="bg-orange-500 text-white rounded-lg px-4 py-2">Calcular Frete</button>
+        </div>
+        <div class="flex flex-col md:flex-row items-center mt-4">
+            <button class="bg-black text-white rounded-lg px-4 py-2 w-full md:w-auto mb-4 md:mb-0 md:mr-4">Adicionar ao Carrinho</button>
+            <button class="bg-black text-white rounded-lg px-4 py-2 w-full md:w-auto">Comprar Agora</button>
+        </div>
+    </div>
+</body>
+</html>
